@@ -1,5 +1,5 @@
 import Image from "next/image";
-import NavLinks from "./NavLinks";
+import NavLinks from "./NavLinks/NavLinks";
 
 export default function Navbar() {
   const date = new Date().toLocaleDateString("bn-BD", {
