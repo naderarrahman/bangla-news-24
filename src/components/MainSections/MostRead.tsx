@@ -7,6 +7,15 @@ export interface MostReadArticle {
   rank?: number;
 }
 
+const toBanglaNumber = (num: number): string => {
+  const banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+  return num
+    .toString()
+    .split("")
+    .map((digit) => banglaDigits[parseInt(digit, 10)] || digit)
+    .join("");
+};
+
 export default async function MostRead() {
   const res = await fetch("https://news-api-v2.vercel.app/api/news/most-read", {
     next: { revalidate: 3600 },
@@ -28,13 +37,11 @@ export default async function MostRead() {
           return (
             <Link
               key={article.id || index}
-              href={article.link || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`/detailed-news/${article.id}`}
               className="flex items-start space-x-3 group cursor-pointer transition-colors"
             >
               <span className="text-xl font-extrabold text-red-700 dark:text-red-500 leading-none min-w-[20px] pt-0.5">
-                {rankNumber}
+                {toBanglaNumber(rankNumber)}
               </span>
 
               <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-red-700 dark:group-hover:text-red-400 leading-snug transition-colors line-clamp-3">
