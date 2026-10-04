@@ -1,6 +1,6 @@
 import MainNews from "@/components/MainSections/MainNews";
+import MostRead from "@/components/MainSections/MostRead";
 import NewsCard from "@/components/MainSections/NewsCard";
-import Marquee from "@/components/Marquee";
 
 export interface Article {
   id: string;
@@ -35,7 +35,6 @@ export default async function Home() {
   const otherNews = sections.slice(1).filter(s => !excludedIds.includes(s.curationId));
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen pb-10">
-      <Marquee />
 
       <div className="container mx-auto px-4 my-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -69,7 +68,7 @@ export default async function Home() {
 
           {/* Right Column (Most Read Section: 4 Cols) */}
           <div className="lg:col-span-4">
-          
+            <MostRead />
           </div>
 
         </div>
