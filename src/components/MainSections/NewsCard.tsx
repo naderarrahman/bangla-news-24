@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Article } from "@/app/page";
+import Link from "next/link";
 
 export default function NewsCard({ article }: { article: Article }) {
   const formattedDate = article.firstPublished
@@ -11,6 +12,8 @@ export default function NewsCard({ article }: { article: Article }) {
     : null;
 
   return (
+    <Link href={`/detailed-news/${article.id}`}>
+
     <div className="bg-white dark:bg-gray-800 rounded-md shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden flex flex-col justify-between hover:shadow-md transition-shadow">
       <div>
         {/* News Image */}
@@ -50,5 +53,7 @@ export default function NewsCard({ article }: { article: Article }) {
         </div>
       )}
     </div>
+
+    </Link>
   );
 }
