@@ -1,3 +1,4 @@
+import Link from "next/link";
 import MarqueeText from "react-marquee-text";
 import "react-marquee-text/dist/styles.css";
 
@@ -24,9 +25,12 @@ export default async function Marquee() {
           <MarqueeText direction="right" duration={10}>
             {headings.map((h) => (
               <span key={h.id} className="inline-flex items-center">
-                <span className="hover:underline cursor-pointer">
+                <Link 
+                  href={`/detailed-news/${h.id}`} 
+                  className="hover:underline cursor-pointer"
+                >
                   {h.title}
-                </span>
+                </Link>
                 <span className="mx-4 text-gray-300">•</span>
               </span>
             ))}
