@@ -1,5 +1,6 @@
 import Image from "next/image";
 import NavLinks from "./NavLinks/NavLinks";
+import UserInfo from "./UserInfo";
 
 export default function Navbar() {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -30,21 +31,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <button 
-            type="button"
-            className="text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 font-medium text-sm px-3 py-1.5 rounded-md transition-colors"
-          >
-            সাইন ইন
-          </button>
-
-          <button 
-            type="button"
-            className="bg-red-800 hover:bg-red-900 text-white font-medium text-sm px-4 py-1.5 rounded-md transition-colors shadow-sm"
-          >
-            সাইন আপ
-          </button>
-        </div>
+        <UserInfo />
 
       </div>
     </header>
