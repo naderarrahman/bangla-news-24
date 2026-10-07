@@ -1,9 +1,10 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
-import Image from "next/image"; // <--- Import Next.js Image
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function UserInfo() {
   const router = useRouter();
@@ -11,9 +12,14 @@ export default function UserInfo() {
   const user = session?.user;
 
   const handleSignOut = async () => {
-    await authClient.signOut();
-    router.push("/");
-    router.refresh();
+    try {
+      await authClient.signOut();
+      toast.success("সফলভাবে সাইন আউট হয়েছে!");
+      router.push("/");
+      router.refresh();
+    } catch {
+      toast.error("সাইন আউট করতে সমস্যা হয়েছে।");
+    }
   };
 
   if (isPending) {
@@ -41,7 +47,7 @@ export default function UserInfo() {
                   alt={user.name || "User"}
                   fill
                   className="object-cover rounded-full"
-                  unoptimized // External avatar image hole unoptimized attribute help kore
+                  unoptimized
                 />
               ) : (
                 <span>{user.name ? user.name.charAt(0).toUpperCase() : "U"}</span>
@@ -51,15 +57,33 @@ export default function UserInfo() {
 
           <ul
             tabIndex={0}
-            className="dropdown-content menu menu-sm z-[1] mt-3 p-3 shadow-xl bg-white rounded-2xl w-60 border border-gray-100"
+            className="dropdown-content menu menu-sm z-[1] mt-3 p-3 shadow-xl bg-white rounded-2xl w-64 border border-gray-100"
           >
-            <li className="px-2 py-1 mb-2 border-b border-gray-100">
+            <li className="px-2 py-2 mb-2 border-b border-gray-100">
               <p className="font-bold text-gray-800 text-sm truncate p-0">
                 {user.name}
               </p>
               <p className="text-xs text-gray-500 truncate p-0 mt-0.5">
                 {user.email}
               </p>
+              
+              {/* Email Verification Status */}
+              <div className="flex items-center gap-1.5 mt-2 p-0">
+                <span className="text-[11px] text-gray-500 font-medium">
+                  Email Verified:
+                </span>
+                {user.emailVerified ? (
+                  <span className="inline-flex items-center gap-1 bg-green-50 text-green-700 text-[10px] font-semibold px-2 py-0.5 rounded-full border border-green-200">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                    Yes
+                  </span>
+                ) : (
+                  <span className="inline-flex items-center gap-1 bg-amber-50 text-amber-700 text-[10px] font-semibold px-2 py-0.5 rounded-full border border-amber-200">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    No
+                  </span>
+                )}
+              </div>
             </li>
 
             <li>
