@@ -25,22 +25,22 @@ export default function UserInfo() {
   if (isPending) {
     return (
       <div className="flex items-center gap-2">
-        <div className="w-9 h-9 rounded-full bg-gray-200 animate-pulse"></div>
+        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gray-200 animate-pulse"></div>
         <div className="hidden sm:block w-20 h-4 bg-gray-200 rounded animate-pulse"></div>
       </div>
     );
   }
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-1.5 sm:gap-3">
       {user ? (
-        <div className="dropdown dropdown-end">
+        <div className="dropdown dropdown-end relative">
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost btn-circle avatar border border-gray-200 hover:border-[#990000] transition-colors"
+            className="btn btn-ghost btn-circle avatar border border-gray-200 hover:border-[#990000] transition-colors p-0.5"
           >
-            <div className="w-10 h-10 rounded-full bg-[#990000] text-white flex items-center justify-center font-bold text-base shadow-sm overflow-hidden relative">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#990000] text-white flex items-center justify-center font-bold text-sm sm:text-base shadow-sm overflow-hidden relative">
               {user.image ? (
                 <Image
                   src={user.image}
@@ -57,13 +57,13 @@ export default function UserInfo() {
 
           <ul
             tabIndex={0}
-            className="dropdown-content menu menu-sm z-[1] mt-3 p-3 shadow-xl bg-white rounded-2xl w-64 border border-gray-100"
+            className="dropdown-content menu menu-sm z-[50] mt-3 p-3 shadow-xl bg-white rounded-2xl w-60 sm:w-64 border border-gray-100 right-0"
           >
             {/* Profile Navigation Button */}
             <li className="mb-1">
               <Link
                 href="/profile"
-                className="flex items-center gap-2 py-2 px-3 hover:bg-gray-100 rounded-lg text-gray-700 font-medium transition-colors"
+                className="flex items-center gap-2 py-2 px-3 hover:bg-gray-100 rounded-lg text-gray-700 font-medium transition-colors text-xs sm:text-sm"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,16 +84,16 @@ export default function UserInfo() {
             </li>
 
             <li className="px-2 py-2 mb-2 border-y border-gray-100">
-              <p className="font-bold text-gray-800 text-sm truncate p-0">
+              <p className="font-bold text-gray-800 text-xs sm:text-sm truncate p-0">
                 {user.name}
               </p>
-              <p className="text-xs text-gray-500 truncate p-0 mt-0.5">
+              <p className="text-[11px] sm:text-xs text-gray-500 truncate p-0 mt-0.5">
                 {user.email}
               </p>
 
               {/* Email Verification Status */}
               <div className="flex items-center gap-1.5 mt-2 p-0">
-                <span className="text-[11px] text-gray-500 font-medium">
+                <span className="text-[10px] sm:text-[11px] text-gray-500 font-medium">
                   Email Verified:
                 </span>
                 {user.emailVerified ? (
@@ -113,7 +113,7 @@ export default function UserInfo() {
             <li>
               <button
                 onClick={handleSignOut}
-                className="text-red-600 hover:bg-red-50 hover:text-red-700 font-medium rounded-lg py-2 transition-colors"
+                className="text-red-600 hover:bg-red-50 hover:text-red-700 font-medium rounded-lg py-2 transition-colors text-xs sm:text-sm flex items-center gap-1.5"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ export default function UserInfo() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.8}
                   stroke="currentColor"
-                  className="w-4 h-4 mr-1"
+                  className="w-4 h-4"
                 >
                   <path
                     strokeLinecap="round"
@@ -135,17 +135,17 @@ export default function UserInfo() {
           </ul>
         </div>
       ) : (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           <Link
             href="/signin"
-            className="text-gray-700 hover:text-[#990000] hover:bg-gray-100 font-semibold text-sm px-3.5 py-1.5 rounded-lg transition-colors"
+            className="text-gray-700 hover:text-[#990000] hover:bg-gray-100 font-semibold text-xs sm:text-sm px-2.5 sm:px-3.5 py-1.5 rounded-lg transition-colors whitespace-nowrap"
           >
             সাইন ইন
           </Link>
 
           <Link
             href="/signup"
-            className="bg-[#990000] hover:bg-[#800000] text-white font-semibold text-sm px-4 py-1.5 rounded-lg transition-all shadow-sm active:scale-95"
+            className="bg-[#990000] hover:bg-[#800000] text-white font-semibold text-xs sm:text-sm px-3 sm:px-4 py-1.5 rounded-lg transition-all shadow-sm active:scale-95 whitespace-nowrap"
           >
             সাইন আপ
           </Link>
