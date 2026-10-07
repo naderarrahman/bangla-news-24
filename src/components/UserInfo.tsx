@@ -59,14 +59,38 @@ export default function UserInfo() {
             tabIndex={0}
             className="dropdown-content menu menu-sm z-[1] mt-3 p-3 shadow-xl bg-white rounded-2xl w-64 border border-gray-100"
           >
-            <li className="px-2 py-2 mb-2 border-b border-gray-100">
+            {/* Profile Navigation Button */}
+            <li className="mb-1">
+              <Link
+                href="/profile"
+                className="flex items-center gap-2 py-2 px-3 hover:bg-gray-100 rounded-lg text-gray-700 font-medium transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.8}
+                  stroke="currentColor"
+                  className="w-4 h-4 text-[#990000]"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                  />
+                </svg>
+                প্রোফাইল দেখুন
+              </Link>
+            </li>
+
+            <li className="px-2 py-2 mb-2 border-y border-gray-100">
               <p className="font-bold text-gray-800 text-sm truncate p-0">
                 {user.name}
               </p>
               <p className="text-xs text-gray-500 truncate p-0 mt-0.5">
                 {user.email}
               </p>
-              
+
               {/* Email Verification Status */}
               <div className="flex items-center gap-1.5 mt-2 p-0">
                 <span className="text-[11px] text-gray-500 font-medium">
@@ -89,7 +113,7 @@ export default function UserInfo() {
             <li>
               <button
                 onClick={handleSignOut}
-                className="text-red-600 hover:bg-red-50 hover:text-red-700 font-medium rounded-lg py-2 transition-colors mt-1"
+                className="text-red-600 hover:bg-red-50 hover:text-red-700 font-medium rounded-lg py-2 transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
