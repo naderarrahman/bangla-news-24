@@ -5,25 +5,17 @@ A modern, full-stack Bengali news portal built with Next.js, TypeScript, Tailwin
 
 **Live Demo:** [Bangla News 24](https://bangla-news-24-navy.vercel.app/)
 
-## 🖼️ Project Preview
 
-<p align="center">
-  <img src="./public/logo.webp" alt="Bangla News 24 Logo" width="160" />
-</p>
 
 ### 📸 Application Screenshots
 
 | Homepage & News Headlines | User Profile UI |
 | :---: | :---: |
-| <img src="./public/image-01.jpeg" alt="Bangla News 24 Homepage" width="450" /> | <img src="./public/image-02.jpeg" alt="Bangla News 24 User Profile" width="450" /> |
+| <img src="./public/image-02.jpeg" alt="Bangla News 24 Homepage" width="450" /> | <img src="./public/image-05.jpeg" alt="Bangla News 24 User Profile" width="450" /> |
 
 | Detailed News View | Sign In & Social Auth |
 | :---: | :---: |
 | <img src="./public/image-03.jpeg" alt="Detailed News View" width="450" /> | <img src="./public/image-04.jpeg" alt="Sign In and Social Authentication" width="450" /> |
-
-<p align="center">
-  <img src="./public/image-05.jpeg" alt="Bangla News 24 Application Overview" width="900" />
-</p>
 
 ## 📑 Table of Contents
 
